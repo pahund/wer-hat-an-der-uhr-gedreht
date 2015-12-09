@@ -14,7 +14,9 @@
     "no-var": 0,
     "vars-on-top": 0,
     "comma-dangle": 0,
-    "no-use-before-define": 0
+    "no-use-before-define": 0,
+    "indent": [2, 4, {"SwitchCase": 1}],
+    "quotes": [2, "double"]
   },
   "plugins": [
     "react"
