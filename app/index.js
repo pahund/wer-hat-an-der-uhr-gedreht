@@ -5,8 +5,12 @@ import { Router } from "react-router";
 import routes from "./routes";
 import configureStore from "./store/configureStore";
 import "./app.css";
+import jQuery from "jquery";
 
 const store = configureStore();
+
+// jQuery is used by the Twitter Bootstrap JS bundle
+window.jQuery = jQuery;
 
 render(
     <Provider store={store}>
