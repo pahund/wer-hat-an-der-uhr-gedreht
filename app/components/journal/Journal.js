@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from "react";
-import JournalEntry from "./JournalEntry";
+import JournalEntry from "./Entry";
 
 class Journal extends Component {
     render() {
@@ -26,6 +26,6 @@ Journal.propTypes = {
         text: PropTypes.string.isRequired,
         completed: PropTypes.bool.isRequired
     }).isRequired).isRequired
-}
+};
 
 export default Journal;

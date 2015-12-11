@@ -1,4 +1,4 @@
-import { ADD_ENTRY, COMPLETE_ENTRY } from "../actions/journal";
+import { ADD_ENTRY, COMPLETE_ENTRY } from "../../actions/journal";
 
 export default (state = [], action = null) => {
     switch (action.type) {

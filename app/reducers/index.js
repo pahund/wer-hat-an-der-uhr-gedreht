@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import counter from "./counter";
-import entries from "./entries";
-import filter from "./filter";
+import entries from "./journal/entries";
+import filter from "./journal/filter";
 
 const rootReducer = combineReducers({
     counter,

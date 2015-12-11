@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from "react";
 
-class JournalFilters extends Component {
+class Filters extends Component {
     renderFilter(filter, name) {
         if (filter === this.props.filter) {
             return (
@@ -38,7 +38,7 @@ class JournalFilters extends Component {
     }
 }
 
-JournalFilters.propTypes = {
+Filters.propTypes = {
     onFilterChange: PropTypes.func.isRequired,
     filter: PropTypes.oneOf([
         "SHOW_ALL",
@@ -47,4 +47,4 @@ JournalFilters.propTypes = {
     ]).isRequired
 };
 
-export default JournalFilters;
+export default Filters;

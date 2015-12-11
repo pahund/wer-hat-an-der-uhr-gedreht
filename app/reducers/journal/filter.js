@@ -1,5 +1,5 @@
-import { SET_FILTER, Filters } from "../actions/journal";
-const { SHOW_ALL } = Filters
+import { SET_FILTER, FilterType } from "../../actions/journal";
+const { SHOW_ALL } = FilterType;
 
 export default (state = SHOW_ALL, action = null) => {
     switch (action.type) {

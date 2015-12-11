@@ -10,7 +10,7 @@ export const SET_FILTER = "SET_FILTER";
  * other constants
  */
 
-export const Filters = {
+export const FilterType = {
     SHOW_ALL: "SHOW_ALL",
     SHOW_COMPLETED: "SHOW_COMPLETED",
     SHOW_ACTIVE: "SHOW_ACTIVE"
