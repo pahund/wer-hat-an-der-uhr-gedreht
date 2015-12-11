@@ -54,8 +54,8 @@ function selectEntries(entries, filter) {
 // Note: use https://github.com/faassen/reselect for better performance.
 function select(state) {
     return {
-        visibleEntries: selectEntries(state.entries, state.filter),
-        filter: state.filter
+        visibleEntries: selectEntries(state.journal.entries, state.journal.filter),
+        filter: state.journal.filter
     };
 }
 
