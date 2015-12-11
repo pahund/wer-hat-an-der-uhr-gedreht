@@ -1,18 +1,7 @@
-# electron-react-boilerplate
+# Wer hat an der Uhr gedreht?
 
-[![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Dependency Status][david_img]][david_site]
-
-![](./erb-logo.png)
-
-> Live editing development on desktop app
-
-[Electron](http://electron.atom.io/) application boilerplate based on [React](https://facebook.github.io/react/), [Redux](https://github.com/rackt/redux), [React Router](https://github.com/rackt/react-router), [Webpack](http://webpack.github.io/docs/), [React Transform HMR](https://github.com/gaearon/react-transform-hmr) for rapid application development
-
-## Screenshot
-
-![](https://cloud.githubusercontent.com/assets/3382565/10557547/b1f07a4e-74e3-11e5-8d27-79ab6947d429.gif)
+Timesheet application, based on [electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate)
+by [C. T. Lin](https://github.com/chentsulin).
 
 ## Install
 
@@ -21,7 +10,6 @@ Install dependencies.
 ```bash
 npm install
 ```
-
 
 ## Run
 
@@ -81,7 +69,7 @@ npm run package-all
 
 #### Options
 
-- --name, -n: Application name (default: ElectronReact)
+- --name, -n: Application name (default: WHADUG)
 - --version, -v: Electron version (default: latest version)
 - --asar, -a: [asar](https://github.com/atom/asar) support (default: false)
 - --icon, -i: Application icon
@@ -111,7 +99,7 @@ If you want to have native-like User Interface (OS X El Capitan and Windows 10),
 
 
 ## License
-MIT © [C. T. Lin](https://github.com/chentsulin)
+MIT © [Patrick Hund](https://github.com/pahund)
 
 [npm-image]: https://img.shields.io/npm/v/electron-react-boilerplate.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/electron-react-boilerplate
