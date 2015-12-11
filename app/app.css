@@ -5,3 +5,9 @@ body {
 .margin-bottom {
     margin-bottom: 20px;
 }
+
+a, button, div, span, td, th {
+    cursor: default !important;
+}
+
+

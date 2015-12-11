@@ -14,12 +14,12 @@ class Home extends Component {
                 <Header section="home"/>
 
                 <div className="container">
-                    <AddEntry onAddClick={text => dispatch(addEntry(text))}/>
-                    <Journal entries={visibleEntries}
-                        onEntryClick={index => dispatch(completeEntry(index))}/>
                     <Filters
                         filter={filter}
                         onFilterChange={nextFilter => dispatch(setFilter(nextFilter))}/>
+                    <Journal entries={visibleEntries}
+                        onEntryClick={index => dispatch(completeEntry(index))}/>
+                    <AddEntry onAddClick={text => dispatch(addEntry(text))} />
                 </div>
             </div>
         );
