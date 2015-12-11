@@ -14,7 +14,7 @@ const finalCreateStore = compose(
     )
 )(createStore);
 
-export default function configureStore(initialState) {
+export default initialState => {
     const store = finalCreateStore(rootReducer, initialState);
 
     if (module.hot) {
@@ -24,4 +24,4 @@ export default function configureStore(initialState) {
     }
 
     return store;
-}
+};
