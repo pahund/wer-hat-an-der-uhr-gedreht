@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from "react";
 
-class AddJournalEntry extends Component {
+class AddEntry extends Component {
     handleClick() {
         const node = this.refs.input;
         const text = node.value.trim();
@@ -19,8 +19,8 @@ class AddJournalEntry extends Component {
     }
 }
 
-AddJournalEntry.propTypes = {
+AddEntry.propTypes = {
     onAddClick: PropTypes.func.isRequired
 };
 
-export default AddJournalEntry;
+export default AddEntry;

@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from "react";
-import { addEntry, completeEntry, setFilter, Filters } from "../actions/journal";
+import { addEntry, completeEntry, setFilter, FilterType } from "../actions/journal";
 import Header from "./Header";
-import AddJournalEntry from "./AddJournalEntry";
-import Journal from "./Journal";
-import JournalFilters from "./JournalFilters";
+import AddEntry from "./journal/AddEntry";
+import Journal from "./journal/Journal";
+import Filters from "./journal/Filters";
 import { connect } from "react-redux";
 
 class Home extends Component {
@@ -14,10 +14,10 @@ class Home extends Component {
                 <Header section="home"/>
 
                 <div className="container">
-                    <AddJournalEntry onAddClick={text => dispatch(addEntry(text))}/>
+                    <AddEntry onAddClick={text => dispatch(addEntry(text))}/>
                     <Journal entries={visibleEntries}
                         onEntryClick={index => dispatch(completeEntry(index))}/>
-                    <JournalFilters
+                    <Filters
                         filter={filter}
                         onFilterChange={nextFilter => dispatch(setFilter(nextFilter))}/>
                 </div>
@@ -40,11 +40,11 @@ Home.propTypes = {
 
 function selectEntries(entries, filter) {
     switch (filter) {
-        case Filters.SHOW_ALL:
+        case FilterType.SHOW_ALL:
             return entries;
-        case Filters.SHOW_COMPLETED:
+        case FilterType.SHOW_COMPLETED:
             return entries.filter(entry => entry.completed);
-        case Filters.SHOW_ACTIVE:
+        case FilterType.SHOW_ACTIVE:
             return entries.filter(entry => !entry.completed);
         default:
     }
