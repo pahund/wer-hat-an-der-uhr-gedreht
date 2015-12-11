@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react";
 import { Link } from "react-router";
 
-export default class Header extends Component {
+class Header extends Component {
     render() {
         return (
             <nav className="navbar navbar-inverse navbar-fixed-top">
@@ -18,7 +18,7 @@ export default class Header extends Component {
                     <div id="navbar" className="collapse navbar-collapse">
                         <ul className="nav navbar-nav">
                             <li className={ this.props.section === "home" ? "active" : "" }>
-                                <Link to="/">Home</Link>
+                                <Link to="/">Liste</Link>
                             </li>
                             <li className={ this.props.section === "counter" ? "active" : "" }>
                                 <Link to="/counter">Counter</Link>
@@ -33,5 +33,6 @@ export default class Header extends Component {
 
 Header.propTypes = {
     section: PropTypes.string.isRequired
-}
+};
 
+export default Header;

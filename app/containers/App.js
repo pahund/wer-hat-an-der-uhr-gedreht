@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from "react";
 
-export default class App extends Component {
+class App extends Component {
     static propTypes = {
         children: PropTypes.element.isRequired
     };
@@ -21,3 +21,5 @@ export default class App extends Component {
         );
     }
 }
+
+export default App;
