@@ -41,4 +41,3 @@ export function textfieldEmpty() {
 export function textfieldFilled() {
     return { type: TEXTFIELD_FILLED };
 }
-

@@ -14,9 +14,9 @@ class Counter extends Component {
     render() {
         const { increment, incrementIfOdd, incrementAsync, decrement, counter } = this.props;
         return (
-            <div>
+            <div id="page-counter">
                 <Header section="counter" />
-                <div className={`counter ${styles.counter}`}>
+                <div id="counter" className={`counter ${styles.counter}`}>
                     {counter}
                 </div>
                 <div className={styles.btnGroup}>

@@ -10,7 +10,7 @@ class Home extends Component {
     render() {
         const { dispatch, visibleEntries, filter } = this.props;
         return (
-            <div>
+            <div id="page-home">
                 <Header section="home"/>
 
                 <div className="container">
@@ -61,4 +61,3 @@ function select(state) {
 
 // Wrap the component to inject dispatch and state into it
 export default connect(select)(Home);
-

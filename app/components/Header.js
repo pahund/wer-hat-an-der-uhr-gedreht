@@ -17,10 +17,10 @@ class Header extends Component {
                     <div id="navbar" className="collapse navbar-collapse">
                         <ul className="nav navbar-nav">
                             <li className={ this.props.section === "home" ? "active" : "" }>
-                                <Link to="/">Liste</Link>
+                                <Link id="nav-to-list" to="/">Liste</Link>
                             </li>
                             <li className={ this.props.section === "counter" ? "active" : "" }>
-                                <Link to="/counter">Counter</Link>
+                                <Link id="nav-to-counter" to="/counter">Counter</Link>
                             </li>
                         </ul>
                     </div>

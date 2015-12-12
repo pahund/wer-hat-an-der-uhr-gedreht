@@ -15,7 +15,7 @@ describe("actions", () => {
 
     it("incrementIfOdd should create increment action", () => {
         const fn = actions.incrementIfOdd();
-        expect(fn).to.be.a('function');
+        expect(fn).to.be.a("function");
         const dispatch = spy();
         const getState = () => ({counter: 1});
         fn(dispatch, getState);

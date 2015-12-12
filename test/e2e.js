@@ -1,25 +1,24 @@
 import path from "path";
-import webdriver from "selenium-webdriver";
+import { Builder, By } from "selenium-webdriver";
 import { expect } from "chai";
 import electronPath from "electron-prebuilt";
-import homeStyles from "../app/components/Home.module.css";
 import counterStyles from "../app/components/Counter.module.css";
 
 describe("main window", function spec() {
-  before((done) => {
-    this.timeout(5000);
-    this.driver = new webdriver.Builder()
-      .usingServer("http://localhost:9515")
-      .withCapabilities({
-        chromeOptions: {
-          binary: electronPath,
-          args: [ "app=" + path.resolve() ]
-        }
-      })
-      .forBrowser("electron")
-      .build();
-    done();
-  });
+    before((done) => {
+        this.timeout(5000);
+        this.driver = new Builder()
+            .usingServer("http://localhost:9515")
+            .withCapabilities({
+                chromeOptions: {
+                    binary: electronPath,
+                    args: [ "app=" + path.resolve() ]
+                }
+            })
+            .forBrowser("electron")
+            .build();
+        done();
+    });
 
     after(async () => {
         this.timeout(10000);
@@ -27,11 +26,11 @@ describe("main window", function spec() {
     });
 
     const findCounter = () => {
-        return this.driver.findElement(webdriver.By.className(counterStyles.counter));
+        return this.driver.findElement(By.id("counter"));
     };
 
     const findButtons = () => {
-        return this.driver.findElements(webdriver.By.className(counterStyles.btn));
+        return this.driver.findElements(By.className(counterStyles.btn));
     };
 
     it("should open window", async () => {
@@ -40,7 +39,7 @@ describe("main window", function spec() {
     });
 
     it("should to Counter with click “to Counter” link", async () => {
-        const link = await this.driver.findElement(webdriver.By.css(`.${homeStyles.container} > a`));
+        const link = await this.driver.findElement({ id: "nav-to-counter" });
         link.click();
 
         const counter = await findCounter();
@@ -95,9 +94,9 @@ describe("main window", function spec() {
     });
 
     it("should back to home if back button clicked", async () => {
-        const link = await this.driver.findElement(webdriver.By.css(`.${counterStyles.backButton} > a`));
+        const link = await this.driver.findElement({ id: "nav-to-list" });
         link.click();
 
-        await this.driver.findElement(webdriver.By.className(homeStyles.container));
+        await this.driver.findElement({ id: "page-home" });
     });
 });

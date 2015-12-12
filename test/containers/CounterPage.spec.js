@@ -37,25 +37,25 @@ describe("containers", () => {
 
         it("should display updated count after increment button click", () => {
             const { buttons, p } = setup();
-            Simulate.click(buttons[0]);
+            Simulate.click(buttons[1]);
             expect(p.textContent).to.match(/^1$/);
         });
 
         it("should display updated count after descrement button click", () => {
             const { buttons, p } = setup();
-            Simulate.click(buttons[1]);
+            Simulate.click(buttons[2]);
             expect(p.textContent).to.match(/^-1$/);
         });
 
         it("shouldn't change if even and if odd button clicked", () => {
             const { buttons, p } = setup();
-            Simulate.click(buttons[2]);
+            Simulate.click(buttons[3]);
             expect(p.textContent).to.match(/^0$/);
         });
 
         it("should change if odd and if odd button clicked", () => {
             const { buttons, p } = setup({counter: 1});
-            Simulate.click(buttons[2]);
+            Simulate.click(buttons[3]);
             expect(p.textContent).to.match(/^2$/);
         });
     });

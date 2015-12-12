@@ -22,7 +22,7 @@ npm run start-hot
 
 *Note: requires a node version >= 4 and an npm version >= 2.*
 
-#### Toggle Chrome DevTools
+### Toggle Chrome DevTools
 
 - OS X: <kbd>Cmd</kbd> <kbd>Alt</kbd> <kbd>I</kbd> or <kbd>F12</kbd>
 - Linux: <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>I</kbd> or <kbd>F12</kbd>
@@ -30,12 +30,42 @@ npm run start-hot
 
 *See [electron-debug](https://github.com/sindresorhus/electron-debug) for more information.*
 
-#### Toggle Redux DevTools
+### Toggle Redux DevTools
 
 - All platforms: <kbd>Ctrl+H</kbd>
 
 *See [redux-devtools-dock-monitor](https://github.com/gaearon/redux-devtools-dock-monitor) for more information.*
 
+## Running Tests
+
+### Unit Tests (Mocha)
+
+To run the unit tests, which are based on [Mocha](https://mochajs.org/):
+
+```bash
+npm test
+```
+
+### End-to-End Tests (Selenium Webdriver)
+
+To run the end-to-end tests, which are based on [Selenium Webdriver](https://github.com/SeleniumHQ/selenium), do a 
+release build first (required every time the application has new changes that need to be tested):
+
+```bash
+npm run build
+```
+
+Then start the Selenium server using Chrome driver:
+
+```bash
+npm run test-e2e:crdv
+```
+
+While the server is running, in another terminal, start the tests:
+
+```bash
+npm run test-e2e
+```
 
 ## Externals
 
