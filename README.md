@@ -122,18 +122,14 @@ We add some module's `peerDependencies` to ignore option as default for applicat
 
 Please checkout [Building windows apps from non-windows platforms](https://github.com/maxogden/electron-packager#building-windows-apps-from-non-windows-platforms).
 
-
 ## Native-like UI
 
 If you want to have native-like User Interface (OS X El Capitan and Windows 10), [react-desktop](https://github.com/gabrielbull/react-desktop) may perfect suit for you.
 
-
 ## License
+
 MIT © [Patrick Hund](https://github.com/pahund)
 
-[npm-image]: https://img.shields.io/npm/v/electron-react-boilerplate.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/electron-react-boilerplate
-[travis-image]: https://travis-ci.org/chentsulin/electron-react-boilerplate.svg?branch=master
-[travis-url]: https://travis-ci.org/chentsulin/electron-react-boilerplate
-[david_img]: https://img.shields.io/david/chentsulin/electron-react-boilerplate.svg
-[david_site]: https://david-dm.org/chentsulin/electron-react-boilerplate
+### [electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate)
+
+MIT © [C. T. Lin](https://github.com/chentsulin)
