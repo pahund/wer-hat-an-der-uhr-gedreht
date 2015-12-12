@@ -8,4 +8,3 @@ export default combineReducers({
     filter,
     submitDisabled
 });
-

@@ -9,4 +9,4 @@ export default (state = 0, action = null) => {
         default:
             return state;
     }
-}
+};

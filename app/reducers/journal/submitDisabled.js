@@ -1,4 +1,4 @@
-import { TEXTFIELD_EMPTY, TEXTFIELD_FILLED, TextfieldType } from "../../actions/journal";
+import { TEXTFIELD_EMPTY, TEXTFIELD_FILLED } from "../../actions/journal";
 
 export default (state = true, action = null) => {
     switch (action.type) {
