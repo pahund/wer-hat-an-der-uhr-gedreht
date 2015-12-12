@@ -26,11 +26,11 @@ describe("main window", function spec() {
     });
 
     const findCounter = () => {
-        return this.driver.findElement(By.id("counter"));
+        return this.driver.findElement({ id: "counter" });
     };
 
     const findButtons = () => {
-        return this.driver.findElements(By.className(counterStyles.btn));
+        return this.driver.findElements({ className: counterStyles.btn });
     };
 
     it("should open window", async () => {
