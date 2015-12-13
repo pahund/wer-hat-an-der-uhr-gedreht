@@ -3,7 +3,6 @@ import { expect } from "chai";
 import { spy } from "sinon";
 import * as actions from "../../app/actions/counter";
 
-
 describe("actions", () => {
     it("increment should create increment action", () => {
         expect(actions.increment()).to.deep.equal({type: actions.INCREMENT_COUNTER});
