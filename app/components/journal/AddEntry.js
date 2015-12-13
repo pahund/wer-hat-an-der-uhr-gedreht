@@ -55,7 +55,7 @@ class AddEntry extends Component {
             if (key === 13) {
                 this.handleSubmit();
             }
-        });
+        }, 0);
     }
 
     render() {
@@ -78,7 +78,7 @@ class AddEntry extends Component {
 
 AddEntry.propTypes = {
     onAddClick: PropTypes.func.isRequired,
-    submitDisabled: PropTypes.bool.isRequired,
+    submitDisabled: PropTypes.bool.isRequired
 };
 
 function select(state) {
