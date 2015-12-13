@@ -28,7 +28,7 @@ describe("[components/Header]", () => {
             it("should have id “nav-to-list”", () =>
                 expect(links[0].props.id).to.equal("nav-to-list"));
         });
-        describe("the secong link on the navigation", () => {
+        describe("the second link on the navigation", () => {
             it("should link to route “/counter”", () =>
                 expect(links[1].props.to).to.equal("/counter"));
             it("should have id “nav-to-counter”", () =>
