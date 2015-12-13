@@ -1,5 +1,5 @@
 /* eslint no-unused-expressions: 0 */
-import { expect } from "chai";
+import { should } from "chai";
 import React from "react";
 import { Link } from "react-router";
 import {
@@ -9,6 +9,7 @@ import {
 } from "react-addons-test-utils";
 import Header from "../../app/components/Header";
 
+should();
 
 function setup(section = "home") {
     const component = renderIntoDocument(<Header section={section} />);
@@ -24,33 +25,33 @@ describe("[components/Header]", () => {
         const { links, listItems } = setup();
         describe("the first link on the navigation", () => {
             it("should link to route “/”", () =>
-                expect(links[0].props.to).to.equal("/"));
+                links[0].props.to.should.equal("/"));
             it("should have id “nav-to-list”", () =>
-                expect(links[0].props.id).to.equal("nav-to-list"));
+                links[0].props.id.should.equal("nav-to-list"));
         });
         describe("the second link on the navigation", () => {
             it("should link to route “/counter”", () =>
-                expect(links[1].props.to).to.equal("/counter"));
+                links[1].props.to.should.equal("/counter"));
             it("should have id “nav-to-counter”", () =>
-                expect(links[1].props.id).to.equal("nav-to-counter"));
+                links[1].props.id.should.equal("nav-to-counter"));
         });
         describe("the list of navigation items", () =>
             it("should have two items", () =>
-                expect(listItems.length).to.equal(2)));
+                listItems.length.should.equal(2)));
         describe("the first navigation item", () =>
             it("should have class “active”", () =>
-                expect(listItems[0].className).to.equal("active")));
+                listItems[0].className.should.equal("active")));
         describe("the second navigation item", () =>
             it("should not have class “active”", () =>
-                expect(listItems[1].className).to.equal("")));
+                listItems[1].className.should.equal("")));
     });
     describe("When I render the header for section “counter”", () => {
         const { listItems } = setup("counter");
         describe("the first navigation item", () =>
             it("should not have class “active”", () =>
-                expect(listItems[0].className).to.equal("")));
+                listItems[0].className.should.equal("")));
         describe("the second navigation item", () =>
             it("should have class “active”", () =>
-                expect(listItems[1].className).to.equal("active")));
+                listItems[1].className.should.equal("active")));
     });
 });
