@@ -65,6 +65,7 @@ class AddEntry extends Component {
                        onKeyUp={e => this.handleKeyUp(e)} />
                 <span className="input-group-btn">
                     <button
+                        id="add-entry-button"
                         className="btn btn-default"
                         type="button"
                         onClick={() => this.handleSubmit()}
