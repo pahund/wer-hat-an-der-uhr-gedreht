@@ -20,9 +20,7 @@ function setup(initialState) {
     );
     return {
         app: app,
-        buttons: scryRenderedDOMComponentsWithTag(app, "button").map(button => {
-            return button;
-        }),
+        buttons: scryRenderedDOMComponentsWithTag(app, "button"),
         p: findRenderedDOMComponentWithClass(app, "counter")
     };
 }
