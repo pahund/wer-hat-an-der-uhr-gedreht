@@ -1,6 +1,6 @@
 /* eslint no-unused-expressions: 0 */
 import { should } from "chai";
-import * as actions from "../../app/actions/journal";
+import * as actions from "../../../app/actions/journal";
 
 should();
 

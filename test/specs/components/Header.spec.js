@@ -7,7 +7,7 @@ import {
     scryRenderedComponentsWithType,
     scryRenderedDOMComponentsWithTag
 } from "react-addons-test-utils";
-import Header from "../../app/components/Header";
+import Header from "../../../app/components/Header";
 
 should();
 

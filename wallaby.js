@@ -4,7 +4,8 @@ module.exports = wallaby => {
     return {
         files: [
             "app/**/*.js",
-            "app/**/*.css"
+            "app/**/*.css",
+            "test/utils/**.js"
         ],
 
         tests: [
