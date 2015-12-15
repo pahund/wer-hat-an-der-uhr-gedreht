@@ -1,7 +1,5 @@
 export default str => {
-    return str.toLowerCase()
-        .replace(/[-_]+/g, " ")
-        .replace(/[^\w\s]/g, "")
-        .replace(/ (.)/g, $1 => $1.toUpperCase())
-        .replace(/ /g, "");
+    return str.split(/[^\w]+/).map(
+        (token, index) => token.replace(/^(.)/,
+            $1 => index === 0 ? $1.toLowerCase() : $1.toUpperCase())).join("");
 };
