@@ -35,8 +35,12 @@ function toCamelCase(str) {
         .replace(/ /g, "");
 }
 
-function setup(submitDisabled) {
-    const store = configureStore();
+function setup(submitDisabled = true) {
+    const store = configureStore({
+        journal: {
+            submitDisabled
+        }
+    });
     const actions = {
         onAddClick: spy()
     };
