@@ -32,7 +32,7 @@ npm run start-hot
 
 ### Toggle Redux DevTools
 
-- All platforms: <kbd>Ctrl+H</kbd>
+- All platforms: <kbd>Ctrl</kbd> <kbd>H</kbd>
 
 *See [redux-devtools-dock-monitor](https://github.com/gaearon/redux-devtools-dock-monitor) for more information.*
 
