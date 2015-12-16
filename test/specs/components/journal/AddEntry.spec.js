@@ -23,7 +23,7 @@ function setup(submitDisabled = true) {
     };
     const component = renderIntoDocument(
         <Provider store={store}>
-            <AddEntry submitDisabled={submitDisabled} {...actions} />
+            <AddEntry {...actions} />
         </Provider>
     );
     const { addEntryButton } = getDOMComponentsByIds(component, ["add-entry-button"]);
