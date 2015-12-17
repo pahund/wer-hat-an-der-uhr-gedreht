@@ -6,25 +6,16 @@ import {
     renderIntoDocument
 } from "react-addons-test-utils";
 import AddEntry from "../../../../app/components/journal/AddEntry";
-import configureStore from "../../../../app/store/configureStore";
-import { Provider } from "react-redux";
 import getDOMComponentsByIds from "../../../utils/getDOMComponentsByIds";
 
 should();
 
-function setup(submitDisabled = true) {
-    const store = configureStore({
-        journal: {
-            submitDisabled
-        }
-    });
+function setup() {
     const actions = {
         onAddClick: spy()
     };
     const component = renderIntoDocument(
-        <Provider store={store}>
-            <AddEntry {...actions} />
-        </Provider>
+        <AddEntry {...actions} />
     );
     const { addEntryButton } = getDOMComponentsByIds(component, ["add-entry-button"]);
     return {
@@ -35,16 +26,8 @@ function setup(submitDisabled = true) {
 }
 
 describe("[components/journal/AddEntry]", () => {
-    describe("When I render the “add entry” component with prop “submit disabled” = false", () => {
-        const { addEntryButton } = setup(false);
-        describe("the “add entry” button", () => {
-            it("should not be disabled", () => {
-                addEntryButton.disabled.should.not.be.ok;
-            });
-        });
-    });
-    describe("When I render the “add entry” component with prop “submit disabled” = true", () => {
-        const { addEntryButton } = setup(true);
+    describe("When I render the “add entry” component", () => {
+        const { addEntryButton } = setup();
         describe("the “add entry” button", () => {
             it("should be disabled", () => {
                 addEntryButton.disabled.should.be.ok;
