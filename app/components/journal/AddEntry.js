@@ -50,7 +50,7 @@ class AddEntry extends Component {
     render() {
         return (
             <div className="input-group margin-bottom">
-                <input ref="input" type="text" className="form-control" placeholder="Beschreibung…"
+                <input id="add-entry-input" ref="input" type="text" className="form-control" placeholder="Beschreibung…"
                        onKeyUp={e => this.handleKeyUp(e)} />
                 <span className="input-group-btn">
                     <button
