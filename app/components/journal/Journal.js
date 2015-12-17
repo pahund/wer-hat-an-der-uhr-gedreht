@@ -4,7 +4,7 @@ import JournalEntry from "./Entry";
 class Journal extends Component {
     render() {
         return (
-            <table className="table table-striped table-hover table-bordered">
+            <table id="journal" className="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
                         <th>Beschreibung</th>
