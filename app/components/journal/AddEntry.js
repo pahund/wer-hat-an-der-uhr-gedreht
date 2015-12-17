@@ -6,6 +6,10 @@ class AddEntry extends Component {
         super(props);
     }
 
+    componentDidMount() {
+        this.updateDisabledState();
+    }
+
     getInput() {
         return this.refs.input;
     }
@@ -55,7 +59,6 @@ class AddEntry extends Component {
                         className="btn btn-default"
                         type="button"
                         onClick={() => this.handleSubmit()}
-                        disabled
                         >Hinzufügen</button>
                 </span>
             </div>
