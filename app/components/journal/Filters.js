@@ -22,7 +22,7 @@ class Filters extends Component {
 
     render() {
         return (
-            <nav className="navbar navbar-default">
+            <nav id="filters" className="navbar navbar-default">
                 <div className="container">
                     <div className="navbar-header">
                         <span className="navbar-brand">Filter:</span>
