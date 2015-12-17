@@ -6,6 +6,8 @@ import routes from "./routes";
 import configureStore from "./store/configureStore";
 import "./app.css";
 import jQuery from "jquery";
+import { ipcRenderer } from "electron";
+import { open, neww } from "./actions/file";
 
 const store = configureStore();
 
@@ -21,10 +23,6 @@ render(
     document.getElementById("root")
 );
 
-if (process.env.NODE_ENV !== "production") {
-    // Use require because imports can't be conditional.
-    // In production, you should ensure process.env.NODE_ENV
-    // is envified so that Uglify can eliminate this
-    // module and its dependencies as dead code.
-    // require('./createDevToolsWindow')(store);
-}
+ipcRenderer.on("file-open", (event, data) => store.dispatch(open(data)));
+ipcRenderer.on("file-new", () => store.dispatch(neww()));
+ipcRenderer.on("file-save", () => ipcRenderer.send("file-save-data", store.getState()));
