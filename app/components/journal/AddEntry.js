@@ -1,22 +1,9 @@
 import React, { Component, PropTypes } from "react";
-import { connect } from "react-redux";
-import { textfieldEmpty, textfieldFilled } from "../../actions/journal";
-
-function stateChecker(getState) {
-    let state = getState();
-    return () => {
-        const newState = getState();
-        const changed = newState !== state;
-        state = newState;
-        return changed;
-    };
-}
 
 class AddEntry extends Component {
 
     constructor(props) {
         super(props);
-        this.hasTextLengthChanged = stateChecker(() => this.refs.input ? this.hasText() : false);
     }
 
     getInput() {
@@ -34,13 +21,11 @@ class AddEntry extends Component {
     handleSubmit() {
         this.props.onAddClick(this.getText());
         this.getInput().value = "";
-        this.dispatchTextChange();
+        this.updateDisabledState();
     }
 
-    dispatchTextChange() {
-        if (this.hasTextLengthChanged()) {
-            this.props.dispatch(this.hasText() ? textfieldFilled() : textfieldEmpty());
-        }
+    updateDisabledState() {
+        this.refs.button.disabled = this.getText().length === 0;
     }
 
     // submit the input field when enter key is pressed
@@ -48,7 +33,7 @@ class AddEntry extends Component {
         const key = e.which;
         // timeout needed for propagation of input field text change
         window.setTimeout(() => {
-            this.dispatchTextChange();
+            this.updateDisabledState();
             if (!this.hasText()) {
                 return;
             }
@@ -61,15 +46,16 @@ class AddEntry extends Component {
     render() {
         return (
             <div className="input-group margin-bottom">
-                <input type="text" ref="input" className="form-control" placeholder="Beschreibung…"
+                <input ref="input" type="text" className="form-control" placeholder="Beschreibung…"
                        onKeyUp={e => this.handleKeyUp(e)} />
                 <span className="input-group-btn">
                     <button
+                        ref="button"
                         id="add-entry-button"
                         className="btn btn-default"
                         type="button"
                         onClick={() => this.handleSubmit()}
-                        disabled={this.props.submitDisabled}
+                        disabled
                         >Hinzufügen</button>
                 </span>
             </div>
@@ -78,14 +64,7 @@ class AddEntry extends Component {
 }
 
 AddEntry.propTypes = {
-    onAddClick: PropTypes.func.isRequired,
-    submitDisabled: PropTypes.bool.isRequired
+    onAddClick: PropTypes.func.isRequired
 };
 
-function select(state) {
-    return {
-        submitDisabled: state.journal.submitDisabled
-    };
-}
-
-export default connect(select)(AddEntry);
+export default AddEntry;
