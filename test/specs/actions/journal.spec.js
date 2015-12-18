@@ -29,18 +29,4 @@ describe("[actions/journal]", () => {
             });
         });
     });
-    describe("textfieldEmpty()", () => {
-        it("should create “textfieldEmpty” action", () => {
-            actions.textfieldEmpty().should.deep.equal({
-                type: actions.TEXTFIELD_EMPTY
-            });
-        });
-    });
-    describe("textfieldFilled()", () => {
-        it("should create “textfieldFilled” action", () => {
-            actions.textfieldFilled().should.deep.equal({
-                type: actions.TEXTFIELD_FILLED
-            });
-        });
-    });
 });
