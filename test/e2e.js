@@ -39,9 +39,9 @@ describe("main window", function spec() {
         expect(title).to.equal("Wer hat an der Uhr gedreht?");
     });
 
-    it("should have an empty input field", async () => {
-        const input = await this.driver.findElement({id: "add-entry-input"});
-        expect(await input.getAttribute("value")).to.equal("");
+    it("should have an empty description field", async () => {
+        const description = await this.driver.findElement({id: "add-entry-description"});
+        expect(await description.getAttribute("value")).to.equal("");
     });
 
     it("should have a disabled button", async () => {
@@ -50,35 +50,35 @@ describe("main window", function spec() {
     });
 
     it("should have an enabled button after I typed a letter", async () => {
-        const input = await this.driver.findElement({id: "add-entry-input"});
+        const description = await this.driver.findElement({id: "add-entry-description"});
         const button = await this.driver.findElement({id: "add-entry-button"});
-        input.sendKeys("f");
+        description.sendKeys("f");
         await this.driver.wait(() =>
             button.getAttribute("disabled").then(disabled => !disabled),
             1000, "“add entry” button should be disabled");
     });
 
-    it("should have a disabled button after I've cleared the input field", async () => {
-        const input = await this.driver.findElement({id: "add-entry-input"});
+    it("should have a disabled button after I've cleared the description field", async () => {
+        const description = await this.driver.findElement({id: "add-entry-description"});
         const button = await this.driver.findElement({id: "add-entry-button"});
-        input.sendKeys("\u0008");
+        description.sendKeys("\u0008");
         await this.driver.wait(() =>
             button.getAttribute("disabled").then(disabled => disabled),
             1000, "“add entry” button should not be disabled");
     });
 
     it("should add a list item when I enter text and click the “add” button", async () => {
-        const input = await this.driver.findElement({id: "add-entry-input"});
+        const description = await this.driver.findElement({id: "add-entry-description"});
         const button = await this.driver.findElement({id: "add-entry-button"});
-        input.sendKeys("foo");
+        description.sendKeys("foo");
         button.click();
         const td = await this.driver.findElement({css: "#journal tbody tr td"});
         expect(await td.getText()).to.equal("foo");
     });
 
-    it("should have an empty input field after I have added an element", async () => {
-        const input = await this.driver.findElement({id: "add-entry-input"});
-        expect(await input.getAttribute("value")).to.equal("");
+    it("should have an empty description field after I have added an element", async () => {
+        const description = await this.driver.findElement({id: "add-entry-description"});
+        expect(await description.getAttribute("value")).to.equal("");
     });
 
     it("should have a disabled button after I have added an element", async () => {
@@ -87,9 +87,9 @@ describe("main window", function spec() {
     });
 
     it("should add another list item when I enter text and click the “add” button", async () => {
-        const input = await this.driver.findElement({id: "add-entry-input"});
+        const description = await this.driver.findElement({id: "add-entry-description"});
         const button = await this.driver.findElement({id: "add-entry-button"});
-        input.sendKeys("bar");
+        description.sendKeys("bar");
         button.click();
         const td = await this.driver.findElement({css: "#journal tbody tr:nth-child(2) td"});
         expect(await td.getText()).to.equal("bar");

@@ -10,35 +10,40 @@ class AddEntry extends Component {
         this.updateDisabledState();
     }
 
-    getInput() {
-        return this.refs.input;
+    getDefaultDate() {
+        const date = new Date();
+        return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
     }
 
-    getText() {
-        return this.getInput().value.trim();
+    getDescriptionField() {
+        return this.refs.description;
     }
 
-    hasText() {
-        return this.getText().length > 0;
+    getDescription() {
+        return this.getDescriptionField().value.trim();
+    }
+
+    hasDescription() {
+        return this.getDescription().length > 0;
     }
 
     handleSubmit() {
-        this.props.onAddClick(this.getText());
-        this.getInput().value = "";
+        this.props.onAddClick(this.getDescription());
+        this.getDescriptionField().value = "";
         this.updateDisabledState();
     }
 
     updateDisabledState() {
-        this.refs.button.disabled = this.getText().length === 0;
+        this.refs.button.disabled = this.getDescription().length === 0;
     }
 
-    // submit the input field when enter key is pressed
+    // submit the form when enter key is pressed
     handleKeyUp(e) {
         const key = e.which;
         // timeout needed for propagation of input field text change
         window.setTimeout(() => {
             this.updateDisabledState();
-            if (!this.hasText()) {
+            if (!this.hasDescription()) {
                 return;
             }
             if (key === 13) {
@@ -49,18 +54,28 @@ class AddEntry extends Component {
 
     render() {
         return (
-            <div className="input-group margin-bottom">
-                <input id="add-entry-input" ref="input" type="text" className="form-control" placeholder="Beschreibung…"
-                       onKeyUp={e => this.handleKeyUp(e)} />
-                <span className="input-group-btn">
-                    <button
-                        ref="button"
-                        id="add-entry-button"
-                        className="btn btn-default"
-                        type="button"
-                        onClick={() => this.handleSubmit()}
-                        >Hinzufügen</button>
-                </span>
+            <div className="row">
+                <div className="col-sm-3">
+                    <input id="add-entry-input-date" ref="inputDate"
+                           className="form-control margin-bottom"
+                           type="date" defaultValue={this.getDefaultDate()} />
+                </div>
+                <div className="col-sm-9">
+                    <div className="input-group margin-bottom">
+                        <input id="add-entry-description" ref="description" type="text"
+                               className="form-control" placeholder="Beschreibung…"
+                               onKeyUp={e => this.handleKeyUp(e)} />
+                        <span className="input-group-btn">
+                            <button
+                                ref="button"
+                                id="add-entry-button"
+                                className="btn btn-default"
+                                type="button"
+                                onClick={() => this.handleSubmit()}
+                            >Hinzufügen</button>
+                        </span>
+                    </div>
+                </div>
             </div>
         );
     }
