@@ -6,10 +6,11 @@ should();
 
 describe("[actions/journal]", () => {
     describe("addEntry(“foo”)", () => {
-        it("should create “addEntry” action with text “foo”", () => {
-            actions.addEntry("foo").should.deep.equal({
+        it("should create “addEntry” action with date “2015-12-22” and text “foo”", () => {
+            actions.addEntry("2015-12-22", "foo").should.deep.equal({
                 type: actions.ADD_ENTRY,
-                text: "foo"
+                date: "2015-12-22",
+                description: "foo"
             });
         });
     });

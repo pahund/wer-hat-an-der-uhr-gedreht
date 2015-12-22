@@ -20,8 +20,8 @@ export const FilterType = {
  * action creators
  */
 
-export function addEntry(text) {
-    return { type: ADD_ENTRY, text };
+export function addEntry(date, description) {
+    return { type: ADD_ENTRY, date, description };
 }
 
 export function completeEntry(index) {

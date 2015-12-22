@@ -7,26 +7,20 @@
   "scripts": {
     "test": "better-npm-run test",
     "test-watch": "npm test -- --watch",
-    "test-e2e:crdv": "chromedriver",
-    "test-e2e": "better-npm-run test-e2e",
+    "test-webdriver:crdv": "chromedriver",
+    "test-webdriver": "better-npm-run test-webdriver",
     "lint": "eslint app test *.js",
     "hot-server": "node server.js",
     "build": "better-npm-run build",
-    "start": "better-npm-run start",
+    "start": "NODE_ENV=production electron .",
     "start-hot": "better-npm-run start-hot",
     "package": "better-npm-run package",
     "package-all": "npm run package -- --all",
     "postinstall": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json"
   },
   "betterScripts": {
-    "start": {
-      "command": "electron ./",
-      "env": {
-        "NODE_ENV": "production"
-      }
-    },
     "start-hot": {
-      "command": "electron ./",
+      "command": "electron .",
       "env": {
         "HOT": 1,
         "NODE_ENV": "development"
@@ -50,8 +44,8 @@
         "NODE_ENV": "test"
       }
     },
-    "test-e2e": {
-      "command": "mocha --compilers js:babel/register --require ./test/setup.js --require co-mocha ./test/e2e.js",
+    "test-webdriver": {
+      "command": "mocha --compilers js:babel/register --require ./test/setup.js --require co-mocha ./test/webdriver.js",
       "env": {
         "NODE_ENV": "test"
       }
@@ -137,6 +131,7 @@
     "font-awesome": "^4.4.0",
     "history": "~1.13.0",
     "jquery": "^2.1.4",
+    "moment": "^2.10.6",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
     "react-redux": "^4.0.0",

@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from "react";
+import moment from "moment";
 
 class Entry extends Component {
     render() {
@@ -9,7 +10,8 @@ class Entry extends Component {
                     textDecoration: this.props.completed ? "line-through" : "none",
                     cursor: this.props.completed ? "default" : "pointer"
                 }}>
-                <td>{this.props.text}</td>
+                <td>{moment(this.props.date).format("ddd D MMM YYYY")}</td>
+                <td>{this.props.description}</td>
             </tr>
         );
     }
@@ -17,7 +19,8 @@ class Entry extends Component {
 
 Entry.propTypes = {
     onClick: PropTypes.func.isRequired,
-    text: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired
 };
 

@@ -6,7 +6,8 @@ export default (state = [], action = null) => {
             return [
                 ...state,
                 {
-                    text: action.text,
+                    date: action.date,
+                    description: action.description,
                     completed: false
                 }
             ];
