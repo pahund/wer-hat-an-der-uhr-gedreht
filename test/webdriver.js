@@ -75,7 +75,7 @@ describe("When WHADUG has started", function spec() {
                     row: 1, col: 1
                 }));
                 it("should contain today's date", async () =>
-                    (await this.cell.getText()).should.equal(moment().format("ddd D MMM")));
+                    (await this.cell.getText()).should.equal(moment().format("ddd D MMM YYYY")));
             });
             describe("the second column in the first row of the entry list", () => {
                 before(async () => this.cell = await this.getTableCell({
@@ -100,9 +100,9 @@ describe("When WHADUG has started", function spec() {
                         before(() => this.button.click());
                         describe("the first column in the second row of the entry list", () => {
                             before(async () => this.cell = await this.getTableCell({ row: 2, col: 1 }));
-                            it("should contain “Sun 10 Oct”", async () =>
+                            it("should contain “Sun 10 Oct 1971”", async () =>
                                 (await this.cell.getText())
-                                    .should.equal(moment("19711010", "YYYYMMDD").format("ddd D MMM")));
+                                    .should.equal("Sun 10 Oct 1971"));
                         });
                         describe("the second column in the second row of the entry list", () => {
                             before(async () => this.cell = await this.getTableCell({ row: 2, col: 2 }));
