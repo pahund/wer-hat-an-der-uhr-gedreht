@@ -262,7 +262,12 @@ if (process.platform === "darwin") {
 }
 menu = Menu.buildFromTemplate(template);
 
-crashReporter.start();
+
+crashReporter.start({
+    productName: "WHADUG",
+    companyName: "Patrick Hund",
+    submitURL: "http://54.249.141.255:1127/post"
+});
 
 if (process.env.NODE_ENV === "development") {
     require("electron-debug")();

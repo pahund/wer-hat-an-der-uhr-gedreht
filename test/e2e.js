@@ -1,5 +1,9 @@
+/**
+ * Deprecated: leftover from electron-react-boilerplate, use selenium.js instead
+ */
 /* eslint no-unused-expressions: 0 */
 import path from "path";
+import moment from "moment";
 import { Builder } from "selenium-webdriver";
 import { expect } from "chai";
 import electronPath from "electron-prebuilt";
@@ -67,13 +71,16 @@ describe("main window", function spec() {
             1000, "“add entry” button should not be disabled");
     });
 
-    it("should add a list item when I enter text and click the “add” button", async () => {
+    it("should add a list item with the description I entered and the current date " +
+            "when I enter a description and click the “add” button", async () => {
         const description = await this.driver.findElement({id: "add-entry-description"});
         const button = await this.driver.findElement({id: "add-entry-button"});
         description.sendKeys("foo");
         button.click();
-        const td = await this.driver.findElement({css: "#journal tbody tr td"});
-        expect(await td.getText()).to.equal("foo");
+        const td1 = await this.driver.findElement({css: "#journal tbody tr td:nth-child(1)"});
+        expect(await td1.getText()).to.equal(moment().format("ddd D MMM"));
+        const td2 = await this.driver.findElement({css: "#journal tbody tr td:nth-child(2)"});
+        expect(await td2.getText()).to.equal("foo");
     });
 
     it("should have an empty description field after I have added an element", async () => {
@@ -91,7 +98,7 @@ describe("main window", function spec() {
         const button = await this.driver.findElement({id: "add-entry-button"});
         description.sendKeys("bar");
         button.click();
-        const td = await this.driver.findElement({css: "#journal tbody tr:nth-child(2) td"});
+        const td = await this.driver.findElement({css: "#journal tbody tr:nth-child(2) td:nth-child(2)"});
         expect(await td.getText()).to.equal("bar");
     });
 

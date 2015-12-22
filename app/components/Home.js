@@ -19,7 +19,7 @@ class Home extends Component {
                         onFilterChange={nextFilter => dispatch(setFilter(nextFilter))}/>
                     <Journal entries={visibleEntries}
                         onEntryClick={index => dispatch(completeEntry(index))}/>
-                    <AddEntry onAddClick={text => dispatch(addEntry(text))} />
+                    <AddEntry onAddClick={(date, description) => dispatch(addEntry(date, description))} />
                 </div>
             </div>
         );
@@ -28,7 +28,8 @@ class Home extends Component {
 
 Home.propTypes = {
     visibleEntries: PropTypes.arrayOf(PropTypes.shape({
-        text: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
         completed: PropTypes.bool.isRequired
     })),
     filter: PropTypes.oneOf([

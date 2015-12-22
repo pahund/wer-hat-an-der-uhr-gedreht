@@ -7,7 +7,8 @@ class Journal extends Component {
             <table id="journal" className="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th>Beschreibung</th>
+                        <th>Date</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,7 +24,8 @@ class Journal extends Component {
 Journal.propTypes = {
     onEntryClick: PropTypes.func.isRequired,
     entries: PropTypes.arrayOf(PropTypes.shape({
-        text: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
         completed: PropTypes.bool.isRequired
     }).isRequired).isRequired
 };
